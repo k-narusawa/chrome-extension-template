@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
-const Popup = () => {
+export const Popup = () => {
   const [count, setCount] = useState(0);
   const [currentURL, setCurrentURL] = useState<string>();
 
@@ -48,10 +47,3 @@ const Popup = () => {
     </>
   );
 };
-
-ReactDOM.render(
-  <React.StrictMode>
-    <Popup />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
