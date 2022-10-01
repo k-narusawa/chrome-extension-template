@@ -2,7 +2,7 @@
 
 ## 概要
 
-- [schedule-manager](https://github.com/k-narusawa/schedule-manager) の新しいバージョン（react 移行版）
+- 旧バージョン : [schedule-manager](https://github.com/k-narusawa/schedule-manager)
 
 ### install
 
