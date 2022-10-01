@@ -1,0 +1,87 @@
+/* 全体の設定 */
+.popup-component {
+  margin: 0;
+  padding: 0;
+  width: 550px;
+  vertical-align: middle;
+
+  /* ヘッダ領域の設定 */
+  > header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #e6e6fa;
+  }
+
+  .header-wrapper .subject {
+    font-size: large;
+    font-weight: bolder;
+    margin-left: 10px;
+  }
+
+  .header-wrapper .navi {
+    display: flex;
+    margin: auto 10px auto auto;
+    list-style-type: none;
+  }
+
+  .header-wrapper .navi .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  border-collapse: collapse;
+  text-align: center;
+
+  > thead {
+    width: 100%;
+    background-color: azure;
+  }
+  > tr {
+    border-bottom: solid 1px #eee;
+  }
+
+  .start-time {
+    width: 20%;
+  }
+
+  .title {
+    width: 60%;
+  }
+
+  .hang-out {
+    width: 20%;
+  }
+
+  > tbody {
+    font-size: 24px;
+
+    .start-time-data {
+      font-size: inherit;
+      color: #dcdcdc;
+    }
+
+    .summary-data {
+      font-size: 18px;
+    }
+
+    .summary-data a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .hang-out-data {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,70 +1,35 @@
-# Chrome Extension TypeScript Starter
+# Schedule Manager
 
-![build](https://github.com/chibat/chrome-extension-typescript-starter/workflows/build/badge.svg)
+## 概要
 
-Chrome Extension, TypeScript and Visual Studio Code
+- [schedule-manager](https://github.com/k-narusawa/schedule-manager) の新しいバージョン（react 移行版）
 
-## Prerequisites
+### install
 
-* [node + npm](https://nodejs.org/) (Current Version)
-
-## Option
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-
-## Includes the following
-
-* TypeScript
-* Webpack
-* React
-* Jest
-* Example Code
-    * Chrome Storage
-    * Options Version 2
-    * content script
-    * count up badge number
-    * background
-
-## Project Structure
-
-* src/typescript: TypeScript source files
-* src/assets: static files
-* dist: Chrome Extension directory
-* dist/js: Generated JavaScript files
-
-## Setup
-
-```
+```sh
 npm install
 ```
 
-## Import as Visual Studio Code project
+### build
 
-...
-
-## Build
-
-```
+```sh
 npm run build
 ```
 
-## Build in watch mode
+### watch
 
-### terminal
-
-```
+```sh
 npm run watch
 ```
 
-### Visual Studio Code
+### 拡張機能の読み込み
 
-Run watch mode.
+- [Chrome 拡張機能](chrome://extensions)からデベロッパーモードにして`パッケージ化されていない拡張機能を読み込む`で成果物(`build`フォルダ配下)を選択することによって動作を確認できる
 
-type `Ctrl + Shift + B`
+## 機能
 
-## Load extension to chrome
+- Google カレンダーからその日の予定を取得して一覧として表示
 
-Load `dist` directory
+## インストール
 
-## Test
-`npx jest` or `npm run test`
+[Schedule Manager For Google Calendar](https://chrome.google.com/webstore/detail/schedule-manager-for-goog/ookamobccikmokomnncjfngnmfhkohdc?hl=ja&authuser=2)

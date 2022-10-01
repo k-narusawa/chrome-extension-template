@@ -1,0 +1,35 @@
+{
+  "application_name": {
+    "message": "Schedule Manager For Google Calendar"
+  },
+  "application_description": {
+    "message": "You can check the appointments registered in Google Calendar. You can also access the HangOut URL directly."
+  },
+
+  "save": {
+    "message": "save"
+  },
+  "save_complete": {
+    "message": "Save Complete."
+  },
+
+  "header_subject": {
+    "message": "List of Today's Schedule"
+  },
+  "main_next_appointment": {
+    "message": "Next Appointment : "
+  },
+  "table_header_summary": {
+    "message": "SUMMARY"
+  },
+  "table_header_start": {
+    "message": "START"
+  },
+  "table_header_note": {
+    "message": "NOTE"
+  },
+
+  "options_fetch_size": {
+    "message": "Number of Appointment : "
+  }
+}
