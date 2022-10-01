@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { calendarApiResponseItem, calendarEvent } from "types";
+import { calendarApiResponseItem } from "types";
 import { useCalendar } from "../../../hooks/useCalendar";
 import { useAuth } from "../../../hooks/useAuth";
 import { useDate } from "../../../hooks/useDate";
@@ -107,7 +107,11 @@ export const Popup = () => {
                     {event.summary}
                   </td>
                   <td className={classNames(styles["hang-out-data"])}>
-                    <a>{event.hangoutLink}</a>
+                    {event.hangoutLink ? (
+                      <a target="_blank" href={event.hangoutLink}>
+                        Meet
+                      </a>
+                    ) : undefined}
                   </td>
                 </tr>
               );

@@ -47,9 +47,6 @@ table {
     width: 100%;
     background-color: azure;
   }
-  > tr {
-    border-bottom: solid 1px #eee;
-  }
 
   .start-time {
     width: 20%;
@@ -65,6 +62,10 @@ table {
 
   > tbody {
     font-size: 24px;
+
+    > tr {
+      border-bottom: solid 1px #eee;
+    }
 
     .start-time-data {
       font-size: inherit;

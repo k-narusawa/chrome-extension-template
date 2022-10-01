@@ -48,6 +48,10 @@
     "webpack-merge": "^5.0.0"
   },
   "react-dotenv": {
-    "whitelist": ["CLIENT_ID","SCOPE","CALENDAR_API_URL"]
+    "whitelist": [
+      "CLIENT_ID",
+      "SCOPE",
+      "CALENDAR_API_URL"
+    ]
   }
 }

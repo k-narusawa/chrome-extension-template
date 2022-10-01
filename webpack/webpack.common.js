@@ -55,3 +55,8 @@ module.exports = {
     }),
   ],
 };
+
+const replaceEnv = (content) => {
+  return content.toString()
+    .replace('__CLIENT_ID__', 'aaaaa')
+}
