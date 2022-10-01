@@ -2,6 +2,8 @@ const webpack = require("webpack");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const srcDir = path.join(__dirname, "..", "src");
+const Dotenv = require('dotenv-webpack');
+require('dotenv').config();
 
 module.exports = {
   entry: {
@@ -21,6 +23,12 @@ module.exports = {
       }
     },
   },
+  plugins: [
+    new Dotenv({
+      safe: true,
+      allowEmptyValues: false,
+    })
+  ],
   module: {
     rules: [
       {
@@ -50,13 +58,13 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: ".", to: "../", context: "public" }],
+      patterns: [{ from: ".", to: "../", context: "public", transform: {
+        transformer(content, path){
+          return content.toString()
+          .replace('__CLIENT_ID__', process.env.CLIENT_ID)
+        }
+      } }],
       options: {},
     }),
   ],
 };
-
-const replaceEnv = (content) => {
-  return content.toString()
-    .replace('__CLIENT_ID__', 'aaaaa')
-}
