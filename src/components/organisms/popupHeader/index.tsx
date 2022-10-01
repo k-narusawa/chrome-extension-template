@@ -10,20 +10,22 @@ type Props = {
 export const PopupHeader = ({ reload }: Props) => {
   return (
     <>
-      <header>
-        <div className={classNames(styles["header-wrapper"])}>
-          <div id="subject" className={classNames(styles["subject"])}>
-            <p>{chrome.i18n.getMessage("header_subject")}</p>
+      <div className={classNames(styles["popup-header-component"])}>
+        <header>
+          <div className={classNames(styles["header-wrapper"])}>
+            <div id="subject" className={classNames(styles["subject"])}>
+              <p>{chrome.i18n.getMessage("header_subject")}</p>
+            </div>
+            <ul className={classNames(styles["navi"])}>
+              <li>
+                <a id="reload">
+                  <CachedIcon onClick={reload} />
+                </a>
+              </li>
+            </ul>
           </div>
-          <ul className={classNames(styles["navi"])}>
-            <li>
-              <a id="reload">
-                <CachedIcon onClick={reload} />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </header>
+        </header>
+      </div>
     </>
   );
 };
