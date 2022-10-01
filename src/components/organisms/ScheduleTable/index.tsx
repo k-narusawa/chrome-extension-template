@@ -16,13 +16,13 @@ export const ScheduleTable = ({ events }: Props) => {
       <table>
         <thead>
           <tr>
-            <th className={classNames(styles["start-time"])}>
+            <th className={classNames(styles["start-time-head"])}>
               {chrome.i18n.getMessage("table_header_start")}
             </th>
-            <th className={classNames(styles["title"])}>
+            <th className={classNames(styles["title-head"])}>
               {chrome.i18n.getMessage("table_header_summary")}
             </th>
-            <th className={classNames(styles["hang-out"])}>
+            <th className={classNames(styles["hang-out-head"])}>
               {chrome.i18n.getMessage("table_header_note")}
             </th>
           </tr>
@@ -31,15 +31,15 @@ export const ScheduleTable = ({ events }: Props) => {
           {events.map((event: calendarApiResponseItem) => {
             return (
               <tr key={event.id}>
-                <td className={classNames(styles["start-time-data"])}>
+                <td className={classNames(styles["start-time-body"])}>
                   {event.start.dateTime
                     ? extractTimeFormat(event.start.dateTime)
                     : "00:00"}
                 </td>
-                <td className={classNames(styles["title-data"])}>
+                <td className={classNames(styles["title-body"])}>
                   {event.summary}
                 </td>
-                <td className={classNames(styles["hang-out-data"])}>
+                <td className={classNames(styles["hang-out-body"])}>
                   {event.hangoutLink ? (
                     <a target="_blank" href={event.hangoutLink}>
                       Meet

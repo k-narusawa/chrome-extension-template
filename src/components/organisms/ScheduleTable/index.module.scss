@@ -10,15 +10,15 @@ table {
     background-color: azure;
   }
 
-  .start-time {
+  .start-time-head {
     width: 20%;
   }
 
-  .title {
+  .title-head {
     width: 60%;
   }
 
-  .hang-out {
+  .hang-out-head {
     width: 20%;
   }
 
@@ -29,21 +29,21 @@ table {
       border-bottom: solid 1px #eee;
     }
 
-    .start-time-data {
+    .start-time-body {
       font-size: inherit;
       color: #dcdcdc;
     }
 
-    .summary-data {
+    .summary-body {
       font-size: 18px;
     }
 
-    .summary-data a {
+    .summary-body a {
       text-decoration: none;
       color: black;
     }
 
-    .hang-out-data {
+    .hang-out-body {
       font-size: 16px;
     }
   }
