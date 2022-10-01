@@ -16,16 +16,10 @@
     "default_title": "Schedule Watcher",
     "default_popup": "popup.html"
   },
-  "background": {
-    "service_worker": "js/background.js"
-  },
   "oauth2": {
     "client_id": "__CLIENT_ID__",
     "scopes":["https://www.googleapis.com/auth/calendar.readonly"]
   },
   "permissions": ["storage", "identity", "alarms"],
-  "host_permissions": [
-    "<all_urls>"
-  ],
   "default_locale": "en"
 }
