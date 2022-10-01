@@ -6,6 +6,7 @@ import { useAuth } from "../../../hooks/useAuth";
 import { useDate } from "../../../hooks/useDate";
 import { PopupHeader } from "../PopupHeader";
 import { ScheduleTable } from "../ScheduleTable";
+import { NextAppointmentDisplay } from "../NextAppointmentDisplay";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
@@ -59,14 +60,7 @@ export const Popup = () => {
     <div className={classNames(styles["popup-component"])}>
       <PopupHeader reload={reload} />
       <main>
-        <div>
-          <span id="real-time">
-            <p>
-              {chrome.i18n.getMessage("main_next_appointment")}
-              {nextSchedule}
-            </p>
-          </span>
-        </div>
+        <NextAppointmentDisplay nextSchedule={nextSchedule} />
         <ScheduleTable events={events} />
       </main>
     </div>

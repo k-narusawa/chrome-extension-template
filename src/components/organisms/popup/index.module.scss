@@ -4,4 +4,8 @@
   width: 550px;
   vertical-align: middle;
   font-family: "Ricty Diminished";
+  > main {
+    margin: 0;
+    padding: 0;
+  }
 }
