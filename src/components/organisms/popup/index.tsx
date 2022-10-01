@@ -5,7 +5,7 @@ import { calendarApiResponseItem } from "types";
 import { useCalendar } from "../../../hooks/useCalendar";
 import { useAuth } from "../../../hooks/useAuth";
 import { useDate } from "../../../hooks/useDate";
-import { CachedIcon } from "../../atoms/IconButton";
+import { PopupHeader } from "../popupHeader";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
@@ -57,20 +57,7 @@ export const Popup = () => {
 
   return (
     <div className={classNames(styles["popup-component"])}>
-      <header>
-        <div className={classNames(styles["header-wrapper"])}>
-          <div id="subject" className={classNames(styles["subject"])}>
-            <p>{chrome.i18n.getMessage("header_subject")}</p>
-          </div>
-          <ul className={classNames(styles["navi"])}>
-            <li>
-              <a id="reload">
-                <CachedIcon onClick={reload} />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </header>
+      <PopupHeader reload={reload} />
       <main>
         <div>
           <span id="real-time">

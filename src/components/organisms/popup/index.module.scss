@@ -5,84 +5,54 @@
   width: 550px;
   vertical-align: middle;
 
-  /* ヘッダ領域の設定 */
-  > header {
+  table {
     width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: collapse;
+    text-align: center;
 
-  .header-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #e6e6fa;
-  }
-
-  .header-wrapper .subject {
-    font-size: large;
-    font-weight: bolder;
-    margin-left: 10px;
-  }
-
-  .header-wrapper .navi {
-    display: flex;
-    margin: auto 10px auto auto;
-    list-style-type: none;
-  }
-
-  .header-wrapper .navi .material-icons {
-    font-size: 24px;
-    cursor: pointer;
-  }
-}
-
-table {
-  width: 100%;
-  table-layout: fixed;
-  word-wrap: break-word;
-  border-collapse: collapse;
-  text-align: center;
-
-  > thead {
-    width: 100%;
-    background-color: azure;
-  }
-
-  .start-time {
-    width: 20%;
-  }
-
-  .title {
-    width: 60%;
-  }
-
-  .hang-out {
-    width: 20%;
-  }
-
-  > tbody {
-    font-size: 24px;
-
-    > tr {
-      border-bottom: solid 1px #eee;
+    > thead {
+      width: 100%;
+      background-color: azure;
     }
 
-    .start-time-data {
-      font-size: inherit;
-      color: #dcdcdc;
+    .start-time {
+      width: 20%;
     }
 
-    .summary-data {
-      font-size: 18px;
+    .title {
+      width: 60%;
     }
 
-    .summary-data a {
-      text-decoration: none;
-      color: black;
+    .hang-out {
+      width: 20%;
     }
 
-    .hang-out-data {
-      font-size: 16px;
+    > tbody {
+      font-size: 24px;
+
+      > tr {
+        border-bottom: solid 1px #eee;
+      }
+
+      .start-time-data {
+        font-size: inherit;
+        color: #dcdcdc;
+      }
+
+      .summary-data {
+        font-size: 18px;
+      }
+
+      .summary-data a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .hang-out-data {
+        font-size: 16px;
+      }
     }
   }
 }
