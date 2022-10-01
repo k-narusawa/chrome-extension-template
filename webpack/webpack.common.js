@@ -8,10 +8,9 @@ module.exports = {
     popup: path.join(srcDir, 'popup_page.tsx'),
     options: path.join(srcDir, 'options_page.tsx'),
     background: path.join(srcDir, 'background.ts'),
-    content_script: path.join(srcDir, 'content_script.ts'),
   },
   output: {
-    path: path.join(__dirname, "../dist/js"),
+    path: path.join(__dirname, "../build/js"),
     filename: "[name].js",
   },
   optimization: {
@@ -25,11 +24,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: "ts-loader",
         exclude: /node_modules/,
+        test: /\.tsx?$/,
+        use: "ts-loader"
       },
-    ],
+      {
+        exclude: /node_modules/,
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "style-loader" // Creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // Translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // Compiles Sass to CSS
+          }
+        ]
+      }
+    ]
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],

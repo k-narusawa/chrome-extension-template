@@ -1,49 +1,95 @@
+import classNames from "classnames";
 import React, { useEffect, useState } from "react";
+import styles from "./index.module.scss";
+import { calendarApiResponseItem, calendarEvent } from "types";
+import { useCalendar } from "../../../hooks/useCalendar";
+import { useAuth } from "../../../hooks/useAuth";
+import { useDate } from "../../../hooks/useDate";
+import { CachedIcon } from "../../atoms/IconButton";
 
 export const Popup = () => {
-  const [count, setCount] = useState(0);
-  const [currentURL, setCurrentURL] = useState<string>();
+  const { calendarApiResponse, fetchCalendar } = useCalendar();
+  const { token, auth } = useAuth();
+  const { extractTimeFormat } = useDate();
+
+  const events = calendarApiResponse?.items ? calendarApiResponse.items : [];
 
   useEffect(() => {
-    chrome.action.setBadgeText({ text: count.toString() });
-  }, [count]);
+    const authAsync = async () => {
+      await auth();
+    };
+    const fetchCalendarAsync = async () => {
+      const storage = await chrome.storage.local.get();
+      const maxResultNum: string = await storage.maxResultNum;
+      await fetchCalendar(token, maxResultNum);
+    };
+    authAsync();
+    fetchCalendarAsync();
+  }, [token]);
 
-  useEffect(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      setCurrentURL(tabs[0].url);
-    });
-  }, []);
-
-  const changeBackground = () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      const tab = tabs[0];
-      if (tab.id) {
-        chrome.tabs.sendMessage(
-          tab.id,
-          {
-            color: "#555555",
-          },
-          (msg) => {
-            console.log("result message:", msg);
-          }
-        );
-      }
-    });
+  const reload = async () => {
+    const authAsync = async () => {
+      await auth();
+    };
+    const fetchCalendarAsync = async () => {
+      const storage = await chrome.storage.local.get();
+      const maxResultNum: string = await storage.maxResultNum;
+      await fetchCalendar(token, maxResultNum);
+    };
+    authAsync();
+    fetchCalendarAsync();
   };
 
   return (
-    <>
-      <ul style={{ minWidth: "700px" }}>
-        <li>Current URL: {currentURL}</li>
-        <li>Current Time: {new Date().toLocaleTimeString()}</li>
-      </ul>
-      <button
-        onClick={() => setCount(count + 1)}
-        style={{ marginRight: "5px" }}
-      >
-        count up
-      </button>
-      <button onClick={changeBackground}>change background</button>
-    </>
+    <div className={classNames(styles["popup-component"])}>
+      <header>
+        <div className={classNames(styles["header-wrapper"])}>
+          <div id="subject" className={classNames(styles["subject"])}>
+            <p>{chrome.i18n.getMessage("header_subject")}</p>
+          </div>
+          <ul className={classNames(styles["navi"])}>
+            <li>
+              <a id="reload">
+                <CachedIcon onClick={reload} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main>
+        <table>
+          <thead>
+            <tr>
+              <th className={classNames(styles["start-time"])}>
+                {chrome.i18n.getMessage("table_header_start")}
+              </th>
+              <th className={classNames(styles["title"])}>
+                {chrome.i18n.getMessage("table_header_summary")}
+              </th>
+              <th className={classNames(styles["hang-out"])}>
+                {chrome.i18n.getMessage("table_header_note")}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((event: calendarApiResponseItem) => {
+              return (
+                <tr key={event.id}>
+                  <td className={classNames(styles["start-time-data"])}>
+                    {extractTimeFormat(event.start.dateTime)}
+                  </td>
+                  <td className={classNames(styles["title-data"])}>
+                    {event.summary}
+                  </td>
+                  <td className={classNames(styles["hang-out-data"])}>
+                    <a>{event.hangoutLink}</a>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </main>
+    </div>
   );
 };

@@ -1,0 +1,36 @@
+{
+  "application_name": {
+    "message": "Schedule Manager For Google Calendar"
+  },
+  "application_description": {
+    "message": "Googleカレンダーに登録されている予定を確認できます。また、HangOutのURLに直接アクセスすることもできます。"
+  },
+
+  "save": {
+    "message": "保存"
+  },
+
+  "save_complete": {
+    "message": "保存が完了しました"
+  },
+
+  "header_subject": {
+    "message": "本日の予定一覧"
+  },
+  "main_next_appointment": {
+    "message": "次の予定 : "
+  },
+  "table_header_summary": {
+    "message": "タイトル"
+  },
+  "table_header_start": {
+    "message": "開始時刻"
+  },
+  "table_header_note": {
+    "message": "備考"
+  },
+
+  "options_fetch_size": {
+    "message": "予定取得数 : "
+  }
+}
