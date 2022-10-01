@@ -10,7 +10,8 @@ import { CachedIcon } from "../../atoms/IconButton";
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
   const { token, auth } = useAuth();
-  const { extractTimeFormat } = useDate();
+  const { extractTimeFormat, stringToDate, getDiff } = useDate();
+  const [nextSchedule, setNextSchedule] = useState("");
 
   const events = calendarApiResponse?.items ? calendarApiResponse.items : [];
 
@@ -26,6 +27,20 @@ export const Popup = () => {
     authAsync();
     fetchCalendarAsync();
   }, [token]);
+
+  useEffect(() => {
+    const onTimeSchedules = events.filter(
+      (event) =>
+        event.start.dateTime && stringToDate(event.start.dateTime) > new Date()
+    );
+    if (onTimeSchedules && onTimeSchedules.length == 0) return;
+
+    const latestEventStartDate = onTimeSchedules[0].start.dateTime;
+    if (!latestEventStartDate) return;
+    setInterval(() => {
+      setNextSchedule(getDiff(stringToDate(latestEventStartDate)));
+    }, 1000);
+  }, [calendarApiResponse, nextSchedule]); // APIで結果が取得できてから再描画させるためにレスポンスを指定
 
   const reload = async () => {
     const authAsync = async () => {
@@ -57,6 +72,14 @@ export const Popup = () => {
         </div>
       </header>
       <main>
+        <div>
+          <span id="real-time">
+            <p>
+              {chrome.i18n.getMessage("main_next_appointment")}
+              {nextSchedule}
+            </p>
+          </span>
+        </div>
         <table>
           <thead>
             <tr>
@@ -76,7 +99,9 @@ export const Popup = () => {
               return (
                 <tr key={event.id}>
                   <td className={classNames(styles["start-time-data"])}>
-                    {extractTimeFormat(event.start.dateTime)}
+                    {event.start.dateTime
+                      ? extractTimeFormat(event.start.dateTime)
+                      : "00:00"}
                   </td>
                   <td className={classNames(styles["title-data"])}>
                     {event.summary}
