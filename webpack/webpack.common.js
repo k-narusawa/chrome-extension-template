@@ -57,13 +57,17 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: ".", to: "../", context: "public", transform: {
-        transformer(content, path){
-          return content.toString()
-          .replace('__CLIENT_ID__', process.env.CLIENT_ID)
-        }
-      } }],
-      options: {},
+      patterns: [{ from: ".", to: "../", context: "public", 
+        transform: {
+          transformer(content, path){
+            if(path.toString().includes('manifest.json')){
+              return content.toString()
+                .replace('__CLIENT_ID__', process.env.CLIENT_ID)
+            }
+            return content
+          }
+        } 
+      }],
     }),
   ],
 };
