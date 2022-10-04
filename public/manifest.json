@@ -20,6 +20,6 @@
     "client_id": "__CLIENT_ID__",
     "scopes":["https://www.googleapis.com/auth/calendar.readonly"]
   },
-  "permissions": ["storage", "identity", "alarms"],
+  "permissions": ["storage", "identity"],
   "default_locale": "en"
 }
