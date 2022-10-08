@@ -3,6 +3,7 @@ import { useDate } from "../../../hooks/useDate";
 import React from "react";
 import { calendarApiResponseItem } from "types";
 import styles from "./index.module.scss";
+import Button from "../../atoms/Button";
 
 type Props = {
   events: Array<calendarApiResponseItem>;
@@ -42,9 +43,17 @@ export const ScheduleTable = ({ events }: Props) => {
                   </td>
                   <td className={classNames(styles["hang-out-body"])}>
                     {event.hangoutLink ? (
-                      <a target="_blank" href={event.hangoutLink}>
-                        Meet
-                      </a>
+                      <>
+                        <Button
+                          onClick={() => {
+                            window.open(event.hangoutLink, "_blank", "");
+                          }}
+                          size="small"
+                          className={classNames(styles["hang-out-body-button"])}
+                        >
+                          Meet
+                        </Button>
+                      </>
                     ) : undefined}
                   </td>
                 </tr>
