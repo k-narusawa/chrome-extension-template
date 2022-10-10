@@ -5,7 +5,7 @@ import { useCalendar } from "../../../hooks/useCalendar";
 import { useAuth } from "../../../hooks/useAuth";
 import { useDate } from "../../../hooks/useDate";
 import { PopupHeader } from "../PopupHeader";
-import { ScheduleTable } from "../ScheduleTable";
+import { EventTable } from "../EventTable";
 import { NextEventDisplay } from "../NextEventDisplay";
 
 export const Popup = () => {
@@ -67,7 +67,7 @@ export const Popup = () => {
             return (
               <>
                 <NextEventDisplay nextSchedule={nextSchedule} />
-                <ScheduleTable events={events} />
+                <EventTable events={events} />
               </>
             );
           }

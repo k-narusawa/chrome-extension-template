@@ -9,7 +9,7 @@ type Props = {
   events: Array<calendarApiResponseItem>;
 };
 
-export const ScheduleTable = ({ events }: Props) => {
+export const EventTable = ({ events }: Props) => {
   const { extractTimeFormat } = useDate();
 
   return (
