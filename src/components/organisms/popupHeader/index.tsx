@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { CachedIcon } from "../../atoms/IconButton";
-import React from "react";
+import { CachedIcon, LoginIcon, LogoutIcon } from "../../atoms/IconButton";
+import React, { useState } from "react";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -18,9 +18,7 @@ export const PopupHeader = ({ reload }: Props) => {
             </div>
             <ul className={classNames(styles["navi"])}>
               <li>
-                <a id="reload">
-                  <CachedIcon onClick={reload} />
-                </a>
+                <CachedIcon onClick={reload} />
               </li>
             </ul>
           </div>
