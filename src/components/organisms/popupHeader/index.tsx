@@ -14,7 +14,7 @@ export const PopupHeader = ({ reload }: Props) => {
         <header>
           <div className={classNames(styles["header-wrapper"])}>
             <div id="subject" className={classNames(styles["subject"])}>
-              <p>{chrome.i18n.getMessage("header_subject")}</p>
+              <p>{chrome.i18n.getMessage("application_name")}</p>
             </div>
             <ul className={classNames(styles["navi"])}>
               <li>
