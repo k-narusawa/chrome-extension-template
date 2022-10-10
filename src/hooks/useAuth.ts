@@ -1,16 +1,32 @@
 import { useCallback, useState } from "react";
 
 export const useAuth = () => {
-  const [token, setToken] = useState("init");
+  const [token, setToken] = useState("");
 
-  const auth = useCallback(() => {
-    chrome.identity.getAuthToken({ interactive: true }, (token: string) => {
-      setToken(token);
+  const login = useCallback(async () => {
+    await chrome.identity.getAuthToken(
+      { interactive: true },
+      (token: string) => {
+        setToken(token);
+        chrome.storage.sync.set({
+          isLogin: true,
+        });
+      }
+    );
+  }, []);
+
+  const logout = useCallback(async () => {
+    await chrome.identity.clearAllCachedAuthTokens(() => {
+      setToken("");
+      chrome.storage.sync.set({
+        isLogin: false,
+      });
     });
   }, []);
 
   return {
-    auth,
     token,
+    login,
+    logout,
   };
 };

@@ -10,7 +10,7 @@ import { NextAppointmentDisplay } from "../NextAppointmentDisplay";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
-  const { token, auth } = useAuth();
+  const { token, login } = useAuth();
   const { stringToDate, getDiff } = useDate();
   const [nextSchedule, setNextSchedule] = useState("");
 
@@ -18,7 +18,7 @@ export const Popup = () => {
 
   useEffect(() => {
     const authAsync = async () => {
-      await auth();
+      await login();
     };
     const fetchCalendarAsync = async () => {
       const storage = await chrome.storage.local.get();
@@ -45,7 +45,7 @@ export const Popup = () => {
 
   const reload = async () => {
     const authAsync = async () => {
-      await auth();
+      await login();
     };
     const fetchCalendarAsync = async () => {
       const storage = await chrome.storage.local.get();
@@ -60,8 +60,18 @@ export const Popup = () => {
     <div className={classNames(styles["popup-component"])}>
       <PopupHeader reload={reload} />
       <main>
-        <NextAppointmentDisplay nextSchedule={nextSchedule} />
-        <ScheduleTable events={events} />
+        {(() => {
+          if (events.length === 0) {
+            return <>Loading...</>; // TODO イベントが取得できなかった際の挙動を考える
+          } else {
+            return (
+              <>
+                <NextAppointmentDisplay nextSchedule={nextSchedule} />
+                <ScheduleTable events={events} />
+              </>
+            );
+          }
+        })()}
       </main>
     </div>
   );
