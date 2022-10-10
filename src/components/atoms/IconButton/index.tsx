@@ -14,6 +14,7 @@ import {
   Login,
   Logout,
   Cached,
+  Settings,
 } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
 import React from "react";
@@ -57,3 +58,4 @@ export const PersonIcon = withIconStyle(Person);
 export const LoginIcon = withIconStyle(Login);
 export const LogoutIcon = withIconStyle(Logout);
 export const CachedIcon = withIconStyle(Cached);
+export const SettingIcon = withIconStyle(Settings);
