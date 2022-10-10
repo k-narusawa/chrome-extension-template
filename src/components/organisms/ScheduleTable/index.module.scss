@@ -7,11 +7,11 @@
   width: 100%;
   table-layout: fixed;
   word-wrap: break-word;
-  border-collapse: collapse;
   text-align: center;
 
   > table {
     width: 100%;
+    border-collapse: collapse;
 
     > thead {
       background-color: azure;
@@ -33,27 +33,32 @@
       font-size: 24px;
 
       > tr {
-        border-bottom: solid 1px #eee;
-      }
+        margin: 10px;
 
-      .start-time-body {
-        font-size: inherit;
-        color: #dcdcdc;
-        width: 20%;
-      }
+        > td {
+          border-bottom: solid 1px #eee;
+        }
 
-      .summary-body {
-        font-size: 18px;
-        width: 60%;
-      }
-
-      .hang-out-body {
-        font-size: 16px;
-        width: 20%;
-
-        .hang-out-body-button{
-          padding: 10px;
-          background-color: DodgerBlue;
+        .start-time-body {
+          font-size: inherit;
+          color: #dcdcdc;
+          width: 20%;
+        }
+  
+        .summary-body {
+          font-size: 18px;
+          width: 60%;
+        }
+  
+        .hang-out-body {
+          font-size: 16px;
+          width: 20%;
+  
+          .hang-out-body-button{
+            padding: 6px 14px;
+            margin: 2px 0px;
+            background-color: DodgerBlue;
+          }
         }
       }
     }
