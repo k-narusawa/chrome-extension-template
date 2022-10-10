@@ -6,7 +6,7 @@ import { useAuth } from "../../../hooks/useAuth";
 import { useDate } from "../../../hooks/useDate";
 import { PopupHeader } from "../PopupHeader";
 import { ScheduleTable } from "../ScheduleTable";
-import { NextAppointmentDisplay } from "../NextAppointmentDisplay";
+import { NextAppointmentDisplay } from "../NextEventDisplay";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
