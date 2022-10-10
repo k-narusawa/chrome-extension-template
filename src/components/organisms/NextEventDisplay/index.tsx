@@ -6,7 +6,7 @@ type Props = {
   nextSchedule: string;
 };
 
-export const NextAppointmentDisplay = ({ nextSchedule }: Props) => {
+export const NextEventDisplay = ({ nextSchedule }: Props) => {
   return (
     <>
       <div className={classNames(styles["next-schedule-display-component"])}>
