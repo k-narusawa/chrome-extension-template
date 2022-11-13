@@ -7,8 +7,6 @@ export const useCalendar = () => {
 
   const fetchCalendar = useCallback(
     async (token: string, maxResults?: string) => {
-      console.log(token);
-
       const params = {
         maxResults: maxResults ? maxResults : "5",
         singleEvents: "true",
