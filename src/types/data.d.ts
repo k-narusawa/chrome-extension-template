@@ -39,12 +39,14 @@ export type calendarApiResponseItem = {
     self: boolean;
   };
   start: {
-    dateTime: string;
-    timeZone: string;
+    date?: string;
+    dateTime?: string;
+    timeZone?: string;
   };
   end: {
-    dateTime: string;
-    timeZone: string;
+    date?: string;
+    dateTime?: string;
+    timeZone?: string;
   };
   endTimeUnspecified: boolean;
   transparency: string;

@@ -1,0 +1,28 @@
+/* ヘッダ領域の設定 */
+.popup-header-component {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .header-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #00bfff;
+  }
+
+  .header-wrapper .subject {
+    font-size: large;
+    margin-left: 10px;
+  }
+
+  .header-wrapper .navi {
+    display: flex;
+    margin: auto 10px auto auto;
+    list-style-type: none;
+  }
+
+  .header-wrapper .navi .material-icons {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}

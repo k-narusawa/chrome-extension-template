@@ -2,12 +2,13 @@ const webpack = require("webpack");
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
 const srcDir = path.join(__dirname, "..", "src");
+const Dotenv = require('dotenv-webpack');
+require('dotenv').config();
 
 module.exports = {
   entry: {
     popup: path.join(srcDir, 'popup_page.tsx'),
     options: path.join(srcDir, 'options_page.tsx'),
-    background: path.join(srcDir, 'background.ts'),
   },
   output: {
     path: path.join(__dirname, "../build/js"),
@@ -21,6 +22,12 @@ module.exports = {
       }
     },
   },
+  plugins: [
+    new Dotenv({
+      safe: true,
+      allowEmptyValues: false,
+    })
+  ],
   module: {
     rules: [
       {
@@ -50,8 +57,17 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: ".", to: "../", context: "public" }],
-      options: {},
+      patterns: [{ from: ".", to: "../", context: "public", 
+        transform: {
+          transformer(content, path){
+            if(path.toString().includes('manifest.json')){
+              return content.toString()
+                .replace('__CLIENT_ID__', process.env.CLIENT_ID)
+            }
+            return content
+          }
+        } 
+      }],
     }),
   ],
 };
