@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  display: inline-block;
 
   .header-wrapper {
     display: flex;
@@ -11,8 +12,10 @@
   }
 
   .header-wrapper .subject {
-    font-size: large;
+    font-size: 24px;
     margin-left: 10px;
+    color: white;
+    font-weight: 600;
   }
 
   .header-wrapper .navi {
