@@ -7,6 +7,7 @@ import { useDate } from "../../../hooks/useDate";
 import { PopupHeader } from "../PopupHeader";
 import { EventTable } from "../EventTable";
 import { NextEventDisplay } from "../NextEventDisplay";
+import Loading from "../../atoms/Loading";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();
@@ -62,7 +63,11 @@ export const Popup = () => {
       <main>
         {(() => {
           if (events.length === 0) {
-            return <>Loading...</>; // TODO イベントが取得できなかった際の挙動を考える
+            return (
+              <>
+                <Loading />
+              </>
+            ); // TODO イベントが取得できなかった際の挙動を考える
           } else {
             return (
               <>
