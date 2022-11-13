@@ -1,6 +1,6 @@
 import classNames from "classnames";
-import { CachedIcon, LoginIcon, LogoutIcon } from "../../atoms/IconButton";
-import React, { useState } from "react";
+import { CachedIcon } from "components/atoms/IconButton";
+import React from "react";
 import styles from "./index.module.scss";
 
 type Props = {

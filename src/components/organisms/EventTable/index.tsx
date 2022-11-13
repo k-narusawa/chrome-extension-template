@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import { useDate } from "../../../hooks/useDate";
+import { useDate } from "hooks/useDate";
 import React from "react";
 import { calendarApiResponseItem } from "types";
 import styles from "./index.module.scss";
-import Button from "../../atoms/Button";
+import Button from "components/atoms/Button";
 
 type Props = {
   events: Array<calendarApiResponseItem>;

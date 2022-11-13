@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
-import { useCalendar } from "../../../hooks/useCalendar";
-import { useAuth } from "../../../hooks/useAuth";
-import { useDate } from "../../../hooks/useDate";
-import { PopupHeader } from "../PopupHeader";
-import { EventTable } from "../EventTable";
+import { useCalendar } from "hooks/useCalendar";
+import { useAuth } from "hooks/useAuth";
+import { useDate } from "hooks/useDate";
+import { PopupHeader } from "components/organisms/popupHeader";
+import { EventTable } from "components/organisms/EventTable"
 import { NextEventDisplay } from "../NextEventDisplay";
-import Loading from "../../atoms/Loading";
+import Loading from "components/atoms/Loading";
 
 export const Popup = () => {
   const { calendarApiResponse, fetchCalendar } = useCalendar();

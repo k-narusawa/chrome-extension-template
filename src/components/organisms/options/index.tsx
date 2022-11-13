@@ -1,5 +1,5 @@
-import Button from "../../atoms/Button";
-import { useAuth } from "../../../hooks/useAuth";
+import Button from "components/atoms/Button";
+import { useAuth } from "hooks/useAuth";
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import styles from "./index.module.scss";
