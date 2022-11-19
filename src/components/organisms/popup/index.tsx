@@ -64,10 +64,10 @@ export const Popup = () => {
         {(() => {
           if (isLoading) {
             return <Loading />;
-          } else if (events.length == 0) {
-            <>
+          } else if (events.length === 0) {
+            return (<>
               <p>本日の予定はありません</p>
-            </>;
+            </>);
           } else {
             return (
               <>
