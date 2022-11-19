@@ -5,7 +5,7 @@ import { useCalendar } from "hooks/useCalendar";
 import { useAuth } from "hooks/useAuth";
 import { useDate } from "hooks/useDate";
 import { PopupHeader } from "components/organisms/popupHeader";
-import { EventTable } from "components/organisms/EventTable"
+import { EventTable } from "components/organisms/EventTable";
 import { NextEventDisplay } from "../NextEventDisplay";
 import Loading from "components/atoms/Loading";
 
@@ -63,13 +63,11 @@ export const Popup = () => {
       <main>
         {(() => {
           if (isLoading) {
-            return (
-              <Loading />
-            );
-          }else if(events.length == 0){
+            return <Loading />;
+          } else if (events.length == 0) {
             <>
               <p>本日の予定はありません</p>
-            </>
+            </>;
           } else {
             return (
               <>
