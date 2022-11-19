@@ -4,9 +4,11 @@ import { useDate } from "./useDate";
 
 export const useCalendar = () => {
   const [calendarApiResponse, setSchedule] = useState<calendarApiResponse>();
+  const [isLoading, setIsLoading] = useState(false)
 
   const fetchCalendar = useCallback(
     async (token: string, maxResults?: string) => {
+      setIsLoading(true)
       const params = {
         maxResults: maxResults ? maxResults : "5",
         singleEvents: "true",
@@ -36,13 +38,14 @@ export const useCalendar = () => {
         .catch((error) => {
           console.log(error);
         });
-
+      setIsLoading(false)
       setSchedule(response);
     },
     []
   );
 
   return {
+    isLoading,
     fetchCalendar,
     calendarApiResponse,
   };

@@ -10,7 +10,7 @@ import { NextEventDisplay } from "../NextEventDisplay";
 import Loading from "components/atoms/Loading";
 
 export const Popup = () => {
-  const { calendarApiResponse, fetchCalendar } = useCalendar();
+  const { isLoading, calendarApiResponse, fetchCalendar } = useCalendar();
   const { token, login } = useAuth();
   const { stringToDate, getDiff } = useDate();
   const [nextSchedule, setNextSchedule] = useState("");
@@ -62,12 +62,14 @@ export const Popup = () => {
       <PopupHeader reload={reload} />
       <main>
         {(() => {
-          if (events.length === 0) {
+          if (isLoading) {
             return (
-              <>
-                <Loading />
-              </>
-            ); // TODO イベントが取得できなかった際の挙動を考える
+              <Loading />
+            );
+          }else if(events.length == 0){
+            <>
+              <p>本日の予定はありません</p>
+            </>
           } else {
             return (
               <>
