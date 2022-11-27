@@ -4,6 +4,7 @@ import React from "react";
 import { calendarApiResponseItem } from "types";
 import styles from "./index.module.scss";
 import Button from "components/atoms/Button";
+import { EventTableRow } from "../EventTableRow";
 
 type Props = {
   events: Array<calendarApiResponseItem>;
@@ -31,33 +32,7 @@ export const EventTable = ({ events }: Props) => {
           </thead>
           <tbody>
             {events.map((event: calendarApiResponseItem) => {
-              return (
-                <tr key={event.id}>
-                  <td className={classNames(styles["start-time-body"])}>
-                    {event.start.dateTime
-                      ? extractTimeFormat(event.start.dateTime)
-                      : "00:00"}
-                  </td>
-                  <td className={classNames(styles["title-body"])}>
-                    {event.summary}
-                  </td>
-                  <td className={classNames(styles["hang-out-body"])}>
-                    {event.hangoutLink ? (
-                      <>
-                        <Button
-                          onClick={() => {
-                            window.open(event.hangoutLink, "_blank", "");
-                          }}
-                          size="small"
-                          className={classNames(styles["hang-out-body-button"])}
-                        >
-                          Meet
-                        </Button>
-                      </>
-                    ) : undefined}
-                  </td>
-                </tr>
-              );
+              return <EventTableRow key={event.id} event={event} />;
             })}
           </tbody>
         </table>
